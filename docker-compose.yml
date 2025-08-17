@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  mcp-server:
+    build: .
+    ports:
+      - "21000:21000"
+    env_file:
+      - .env
+    labels:
+      tsdproxy.enable: "true"
+      tsdproxy.name: "mcp-server2"
+      tsdproxy.container_port: "23000"
+    restart: unless-stopped
